@@ -46,12 +46,7 @@ _make dev_ will start dev server with hot reload on linux but hot reloading will
 windows OS. An option for windows developers is to run this project inside wsl2. Another option
 for local development into windows is to not use docker but just yarn serve, which will perform
 better.  
-Also, for windows development with local serve just **remove** this lines in vue.config.js
-````javascript
-devServer: {
-    port: 8080
-  }
-````
+
 
 ### Api mocking
 Api backend service has been mocked through [miragejs.com](https://miragejs.com)
@@ -67,7 +62,10 @@ user2: mipass2
 
 Routing guards prevent to access app if no Bearer token is present. Bearer token is obtained and
 saved into store from mock api.
-App doesn't handle token expiration and renewal
+#### Considerations
+1. App doesn't handle token expiration and renewal
+2. Post Content-Type should be x-www-form-urlencoded but mock api only supports application/json
+3. Password should be sent encrypted instead of plain text, but this is for another scope.
 
 ### Books api
 Books api documentation is available [here](https://demo.api-platform.com/)
@@ -76,11 +74,7 @@ Books api documentation is available [here](https://demo.api-platform.com/)
 is specified on section 5 has to be done on client side.  
 2. Pagination on the other side is handled within api param "page" so this action is done
 server side.
-3. Items are aligned with flex and space-between to keep them correctly arranged within
-container. This makes filtered results don't align naturally to the left. I haven't found
-   within Vuetify options a way to draw this correctly. I could use css but wanted to avoid
-   as much as possible
-4. Post action is very confusing. I followed documentation and errors returned doesn't give
+3. Post action is very confusing. I followed documentation and errors returned doesn't give
 any clue of what was wrong. I'm printing errors returned from api in an error field but can't 
    solve them as i don't know what's wrong in many cases. In any case front input validation
    is applied and network inspection shows how the request is being sent.

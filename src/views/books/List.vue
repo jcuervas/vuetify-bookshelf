@@ -1,6 +1,6 @@
 <template>
   <v-container class="d-flex flex-column justify-center align-center">
-    <v-card width="80vw" max-width="900px" flat>
+    <v-card width="80vw" max-width="1024px" flat>
       <v-card-text>
         <h2 class="my-10 text-center">
           This is another books repository, enjoy it!
@@ -14,27 +14,32 @@
         >
           <v-icon slot="append">mdi-cloud-search-outline</v-icon>
         </v-text-field>
-        <div class="d-flex flex-row flex-wrap justify-space-between">
-          <v-card
-            link
-            height="350px"
-            width="30%"
-            elevation="2"
-            class="ma-2"
-            shaped
-            tile
-            @click="() => $router.push({ name: 'Create' })"
-          >
-            <v-card-text class="d-flex justify-center align-center h-100-x">
-              <v-icon size="150">mdi-plus</v-icon>
-            </v-card-text>
-          </v-card>
-          <BookItem
+        <v-row>
+          <v-col cols="12" sm="6" md="4" lg="3">
+            <v-card
+              link
+              height="350px"
+              elevation="2"
+              shaped
+              tile
+              @click="() => $router.push({ name: 'Create' })"
+            >
+              <v-card-text class="d-flex justify-center align-center h-100-x">
+                <v-icon size="150">mdi-plus</v-icon>
+              </v-card-text>
+            </v-card>
+          </v-col>
+          <v-col
+            cols="12"
+            sm="6"
+            md="4"
+            lg="3"
             v-for="book of filteredBooks"
             :key="book['@id']"
-            :book="book"
-          ></BookItem>
-        </div>
+          >
+            <BookItem :book="book"></BookItem>
+          </v-col>
+        </v-row>
       </v-card-text>
     </v-card>
     <v-pagination v-model="page" :length="pages"></v-pagination>

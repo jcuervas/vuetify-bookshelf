@@ -1,22 +1,13 @@
 <template>
-  <v-card
-    link
-    height="350px"
-    width="30%"
-    elevation="2"
-    class="ma-2"
-    shaped
-    tile
-    @click="goToBook"
-  >
+  <v-card link height="350px" elevation="2" shaped tile @click="goToBook">
     <v-card-text>
-      <h3>
+      <v-card-title>
         {{ book.title }}
-      </h3>
-      <h4 class="font-italic">
+      </v-card-title>
+      <v-card-subtitle>
         {{ book.author }}
-      </h4>
-      <v-divider class="my-5"></v-divider>
+      </v-card-subtitle>
+      <v-divider class="mb-2"></v-divider>
       <p>
         {{ truncate(book.description, 200) }}
       </p>
@@ -48,4 +39,16 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.v-card__title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  word-break: break-word;
+  padding: 0;
+}
+.v-card__title + .v-card__subtitle {
+  margin-bottom: 0;
+  padding: 0;
+  margin-top: 2px;
+}
+</style>
