@@ -23,19 +23,21 @@
             @keyup="submitOnEnter"
           ></v-text-field>
         </v-card-text>
+        <v-alert
+          :value="!!error"
+          dismissible
+          color="error"
+          class="w-80-x ma-auto"
+          transition="scroll-y-transition"
+          type="warning"
+          >{{ error }}</v-alert
+        >
         <v-card-actions>
           <v-btn block color="primary" :disabled="!valid" @click="onSubmit">
             Login
           </v-btn>
         </v-card-actions>
       </v-card>
-      <v-alert
-        v-if="error"
-        color="error"
-        transition="scale-transition"
-        type="warning"
-        >{{ error }}</v-alert
-      >
     </v-container>
   </v-form>
 </template>
@@ -56,9 +58,6 @@ export default {
         username: this.username,
         password: this.password,
       });
-      setTimeout(() => {
-        this.error = null;
-      }, 3000);
       if (!this.error) {
         return this.$router.push({ name: "Home" });
       }

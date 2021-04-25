@@ -4,6 +4,12 @@
   }
 }
 
+@each $prop in (absolute, relative) {
+  .position-#{$prop} {
+    position: $prop!important;
+  }
+}
+
 @each $prop in (row, column) {
   .flex-direction-#{$prop} {
     flex-direction: $prop!important;
