@@ -44,18 +44,9 @@ export default {
     };
   },
   methods: {
-    getBook() {
-      this.$store.dispatch("getBook", this.$route.params.id);
-    },
     formatDate(date) {
-      console.log({ Date: new Date(date), date });
       return format(new Date(date), "DD-MM-YYYY");
     },
   },
-  async mounted() {
-    await this.getBook();
-  },
 };
 </script>
-
-<style scoped></style>

@@ -9,7 +9,7 @@ export default {
     state.books = Array.from(books);
   },
   currentBook(state, currentBook) {
-    state.currentBook = currentBook;
+    Object.assign(state.currentBook, currentBook);
   },
   totalBooks(state, totalBooks) {
     state.totalBooks = totalBooks;

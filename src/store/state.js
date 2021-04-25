@@ -5,7 +5,7 @@ export default () => {
       bearer: null,
     },
     books: [],
-    currentBook: null,
+    currentBook: {},
     totalBooks: 1,
   };
 };

@@ -7,7 +7,7 @@
     class="ma-2"
     shaped
     tile
-    @click="$router.push({ name: 'Detail', params: { id: getId() } })"
+    @click="goToBook"
   >
     <v-card-text>
       <h3>
@@ -35,6 +35,14 @@ export default {
     },
     getId() {
       return this.book["@id"].split("/books/")[1];
+    },
+    async goToBook() {
+      const id = this.getId();
+      await this.$store.dispatch("getBook", id);
+      return this.$router.push({
+        name: "Detail",
+        params: { id },
+      });
     },
   },
 };

@@ -75,7 +75,7 @@ export default {
     },
   },
   async mounted() {
-    this.$store.commit("currentBook", null);
+    this.$store.commit("currentBook", {});
     return this.getBooks();
   },
   watch: {
