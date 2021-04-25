@@ -29,6 +29,29 @@ Use the makefile to start docker actions. Help will show you the different optio
 ````bash
 make help
 ````
+#### build and serve with nginx
+````bash
+make prod
+````
+#### serve with hot reload
+````bash
+make dev
+````
+#### stop dev image
+````bash
+make stop
+````
+##### Note on windows
+_make dev_ will start dev server with hot reload on linux but hot reloading will not work on 
+windows OS. An option for windows developers is to run this project inside wsl2. Another option
+for local development into windows is to not use docker but just yarn serve, which will perform
+better.  
+Also, for windows development with local serve just **remove** this lines in vue.config.js
+````javascript
+devServer: {
+    port: 8080
+  }
+````
 
 ### Api mocking
 Api backend service has been mocked through [miragejs.com](https://miragejs.com)
