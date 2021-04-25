@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import store from "@/store";
 Vue.use(VueRouter);
-
 const routes = [
   {
     path: "/",
@@ -35,11 +34,13 @@ const routes = [
         ],
       },
     ],
-    /* beforeEnter(to, from, next) {
-      return (
-        (store.getters.isAuthenticated && next()) || next({ name: "Auth" })
-      );
-    },*/
+    beforeEnter(to, from, next) {
+      if (store.getters.isAuthenticated) {
+        next();
+        return;
+      }
+      return next({ name: "Auth" });
+    },
   },
   {
     path: "/auth",
