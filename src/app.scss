@@ -1,0 +1,99 @@
+@each $prop in (pointer) {
+  .cursor-#{$prop} {
+    cursor: $prop!important;
+  }
+}
+
+@each $prop in (row, column) {
+  .flex-direction-#{$prop} {
+    flex-direction: $prop!important;
+  }
+}
+
+@each $prop in (flex, block, inline, inline-block, fixed) {
+  .display-#{$prop} {
+    display: $prop!important;
+  }
+}
+
+@for $index from 0 through 500 {
+  $size: $index * 5;
+
+  .h-#{$size}-px {
+    height: #{$size}px!important;
+  }
+
+  .w-#{$size}-px {
+    width: #{$size}px!important;
+  }
+}
+
+@for $index from 0 through 100 {
+  .h-#{$index}-vh {
+    height: #{$index}vh!important;
+  }
+
+  .h-#{$index}-x {
+    height: #{$index}#{'%'}!important;
+  }
+
+  .w-#{$index}-vw {
+    width: #{$index}vw!important;
+  }
+
+  .w-#{$index}-x {
+    width: #{$index}#{'%'}!important;
+  }
+
+  .flex-#{$index} {
+    flex: #{$index}#{'%'}!important;
+  }
+
+  .p-#{$index} {
+    padding: #{$index}px!important;
+  }
+  .px-#{$index} {
+    padding-left: #{$index}px!important;
+    padding-right: #{$index}px!important;
+  }
+  .py-#{$index} {
+    padding-top: #{$index}px!important;
+    padding-bottom: #{$index}px!important;
+  }
+  .pt-#{$index} {
+    padding-top: #{$index}px!important;
+  }
+  .pb-#{$index} {
+    padding-bottom: #{$index}px!important;
+  }
+  .pl-#{$index} {
+    padding-left: #{$index}px!important;
+  }
+  .pr-#{$index} {
+    padding-right: #{$index}px!important;
+  }
+
+  .m-#{$index} {
+    margin: #{$index}px!important;
+  }
+  .mx-#{$index} {
+    margin-left: #{$index}px!important;
+    margin-right: #{$index}px!important;
+  }
+  .my-#{$index} {
+    margin-top: #{$index}px!important;
+    margin-bottom: #{$index}px!important;
+  }
+  .mt-#{$index} {
+    margin-top: #{$index}px!important;
+  }
+  .mb-#{$index} {
+    margin-bottom: #{$index}px!important;
+  }
+  .ml-#{$index} {
+    margin-left: #{$index}px!important;
+  }
+  .mr-#{$index} {
+    margin-right: #{$index}px!important;
+  }
+}
