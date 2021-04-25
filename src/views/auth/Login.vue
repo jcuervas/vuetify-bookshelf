@@ -56,7 +56,9 @@ export default {
         username: this.username,
         password: this.password,
       });
-      console.log({ error: this.error });
+      setTimeout(() => {
+        this.error = null;
+      }, 3000);
       if (!this.error) {
         return this.$router.push({ name: "Home" });
       }

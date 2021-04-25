@@ -14,7 +14,8 @@ class ApiService {
     const body = { username, password };
 
     const signInResponse = await this.post(apiEndPoints.login, body);
-    const { user, token } = signInResponse.data;
+    const { user, token, error } = signInResponse.data;
+    if (error) return error;
     store.commit("user", user);
     store.commit("bearer", "Bearer " + token);
     return null;

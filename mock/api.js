@@ -22,10 +22,10 @@ export function makeServer({ environment = "development" } = {}) {
         const { username, password } = JSON.parse(request.requestBody);
         const user = schema.users.findBy({ username });
         if (!user) {
-          return new Error("Username does not exist");
+          return { error: "Username does not exist" };
         }
         if (user.password !== password) {
-          return new Error("Invalid password");
+          return { error: "Invalid password" };
         }
         const token = jwt.sign({ user: "hey" }, secret);
         return { status: 200, user, token };
